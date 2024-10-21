@@ -13,12 +13,12 @@ from pathlib import Path
 from PIL import ImageFont
 from collections import deque
 
-from detector.neural_networks.yolov6.yolov6.utils.events import LOGGER, load_yaml
-from detector.neural_networks.yolov6.yolov6.layers.common import DetectBackend
-from detector.neural_networks.yolov6.yolov6.data.data_augment import letterbox
-from detector.neural_networks.yolov6.yolov6.data.datasets import LoadData
-from detector.neural_networks.yolov6.yolov6.utils.nms import non_max_suppression
-from detector.neural_networks.yolov6.yolov6.utils.torch_utils import get_model_info
+from detectors.intelligentAlgorithm.yolov6.yolov6.utils.events import LOGGER, load_yaml
+from detectors.intelligentAlgorithm.yolov6.yolov6.layers.common import DetectBackend
+from detectors.intelligentAlgorithm.yolov6.yolov6.data.data_augment import letterbox
+from detectors.intelligentAlgorithm.yolov6.yolov6.data.datasets import LoadData
+from detectors.intelligentAlgorithm.yolov6.yolov6.utils.nms import non_max_suppression
+from detectors.intelligentAlgorithm.yolov6.yolov6.utils.torch_utils import get_model_info
 
 class Inferer:
     def __init__(self, source, webcam, webcam_addr, weights, device, yaml, img_size, half):
@@ -58,7 +58,7 @@ class Inferer:
     @staticmethod
     def model_switch(model):
         ''' Model switch to deploy status '''
-        from detector.neural_networks.yolov6.yolov6.layers.common import RepVGGBlock
+        from detectors.intelligentAlgorithm.yolov6.yolov6.layers.common import RepVGGBlock
         for layer in model.modules():
             if isinstance(layer, RepVGGBlock):
                 layer.switch_to_deploy()
@@ -253,7 +253,7 @@ class Inferer:
                         thickness=tf, lineType=cv2.LINE_AA)
 
     @staticmethod
-    def font_check(font='./yolov6/utils/Arial.ttf', size=10):
+    def font_check(font='detectors/intelligentAlgorithm/yolov6/yolov6/utils/Arial.ttf', size=10):
         # Return a PIL TrueType Font, downloading to CONFIG_DIR if necessary
         assert osp.exists(font), f'font path not exists: {font}'
         try:

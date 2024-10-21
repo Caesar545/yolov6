@@ -4,11 +4,11 @@ import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from detector.neural_networks.yolov6.yolov6.layers.common import *
-from detector.neural_networks.yolov6.yolov6.utils.torch_utils import initialize_weights
-from detector.neural_networks.yolov6.yolov6.models.efficientrep import *
-from detector.neural_networks.yolov6.yolov6.models.reppan import *
-from detector.neural_networks.yolov6.yolov6.utils.events import LOGGER
+from detectors.intelligentAlgorithm.yolov6.yolov6.layers.common import *
+from detectors.intelligentAlgorithm.yolov6.yolov6.utils.torch_utils import initialize_weights
+from detectors.intelligentAlgorithm.yolov6.yolov6.models.efficientrep import *
+from detectors.intelligentAlgorithm.yolov6.yolov6.models.reppan import *
+from detectors.intelligentAlgorithm.yolov6.yolov6.utils.events import LOGGER
 
 
 class Model(nn.Module):
